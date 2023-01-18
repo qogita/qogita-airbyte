@@ -2,7 +2,7 @@ name: ssh-into-aws-ec2
 
 on:
   push:
-    branches: "DE-CICD-to-apply-octavia-configs"
+    branches: "master"
 
 env:
 #  bucket_name: "<example-bucket-name>"
