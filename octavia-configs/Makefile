@@ -1,11 +1,4 @@
-OCTAVIA_ENV_FILE := $(HOME)/.octavia
-OCTAVIA_ALIAS := docker run -i --rm -v $(PWD):/home/octavia-project --network host --env-file $(OCTAVIA_ENV_FILE) --user $(id -u):$(id -g) airbyte/octavia-cli:0.40.28
-AIRBYTE_URL := --airbyte-url http://host.docker.internal:8000
-OCTAVIA := $(OCTAVIA_ALIAS) $(AIRBYTE_URL)
-RESOURCE_NAME?=not_defined_yet
-DEFINITION_ID?=not_defined_yet
-
-.PHONY: forward_ec2_port _import_all _apply
+.PHONY: forward_ec2_port install_octavia
 
 forward_ec2_port:
 	cd $(HOME)/.ssh && \
