@@ -4,16 +4,6 @@ on:
   push:
     branches: "master"
 
-env:
-#  bucket_name: "<example-bucket-name>"
-  AWS_REGION: !!your-aws-region
-  REMOTE_HOST: "!!replace with your aws remote host"
-  REMOTE_USER: "!!replace with your ec2 username"
-
-permissions:
-  contents: read
-  id-token: write
-
 jobs:
   test:
     runs-on: ubuntu-latest
