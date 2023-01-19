@@ -1,5 +1,5 @@
 definition_type: connection
-resource_name: revenue_db <> Snowflake
+resource_name: revenue_db <> snowflake_raw_revenue_db_public
 source_configuration_path: sources/revenue_db/configuration.yaml
 destination_configuration_path: destinations/snowflake_raw_revenue_db_public/configuration.yaml
 configuration:
@@ -446,10 +446,9 @@ configuration:
         - - ident
         namespace: public
       config:
-        sync_mode: incremental
-        destination_sync_mode: append_dedup
-        cursor_field:
-        - ident
+        sync_mode: full_refresh
+        destination_sync_mode: overwrite
+        cursor_field: []
         primary_key:
         - - ident
         alias_name: django_celery_beat_periodictasks
@@ -518,10 +517,9 @@ configuration:
         - - id
         namespace: public
       config:
-        sync_mode: incremental
-        destination_sync_mode: append_dedup
-        cursor_field:
-        - id
+        sync_mode: full_refresh
+        destination_sync_mode: overwrite
+        cursor_field: []
         primary_key:
         - - id
         alias_name: django_celery_beat_intervalschedule
@@ -732,10 +730,9 @@ configuration:
         - - id
         namespace: public
       config:
-        sync_mode: incremental
-        destination_sync_mode: append_dedup
-        cursor_field:
-        - id
+        sync_mode: full_refresh
+        destination_sync_mode: overwrite
+        cursor_field: []
         primary_key:
         - - id
         alias_name: django_site
@@ -850,10 +847,9 @@ configuration:
         - - id
         namespace: public
       config:
-        sync_mode: incremental
-        destination_sync_mode: append_dedup
-        cursor_field:
-        - id
+        sync_mode: full_refresh
+        destination_sync_mode: overwrite
+        cursor_field: []
         primary_key:
         - - id
         alias_name: auth_permission
@@ -918,10 +914,9 @@ configuration:
         - - id
         namespace: public
       config:
-        sync_mode: incremental
-        destination_sync_mode: append_dedup
-        cursor_field:
-        - id
+        sync_mode: full_refresh
+        destination_sync_mode: overwrite
+        cursor_field: []
         primary_key:
         - - id
         alias_name: account_user_groups
@@ -949,10 +944,9 @@ configuration:
         - - id
         namespace: public
       config:
-        sync_mode: incremental
-        destination_sync_mode: append_dedup
-        cursor_field:
-        - id
+        sync_mode: full_refresh
+        destination_sync_mode: overwrite
+        cursor_field: []
         primary_key:
         - - id
         alias_name: campaign_campaign_countries
@@ -1136,10 +1130,9 @@ configuration:
         - - history_id
         namespace: public
       config:
-        sync_mode: incremental
-        destination_sync_mode: append_dedup
-        cursor_field:
-        - history_id
+        sync_mode: full_refresh
+        destination_sync_mode: overwrite
+        cursor_field: []
         primary_key:
         - - history_id
         alias_name: auth_historicalpermission
@@ -1169,10 +1162,9 @@ configuration:
         - - id
         namespace: public
       config:
-        sync_mode: incremental
-        destination_sync_mode: append_dedup
-        cursor_field:
-        - id
+        sync_mode: full_refresh
+        destination_sync_mode: overwrite
+        cursor_field: []
         primary_key:
         - - id
         alias_name: django_migrations
@@ -1206,10 +1198,9 @@ configuration:
         - - id
         namespace: public
       config:
-        sync_mode: incremental
-        destination_sync_mode: append_dedup
-        cursor_field:
-        - id
+        sync_mode: full_refresh
+        destination_sync_mode: overwrite
+        cursor_field: []
         primary_key:
         - - id
         alias_name: django_celery_beat_crontabschedule
@@ -1250,10 +1241,9 @@ configuration:
         - - id
         namespace: public
       config:
-        sync_mode: incremental
-        destination_sync_mode: append_dedup
-        cursor_field:
-        - id
+        sync_mode: full_refresh
+        destination_sync_mode: overwrite
+        cursor_field: []
         primary_key:
         - - id
         alias_name: django_admin_log
@@ -1396,10 +1386,9 @@ configuration:
         - - id
         namespace: public
       config:
-        sync_mode: incremental
-        destination_sync_mode: append_dedup
-        cursor_field:
-        - id
+        sync_mode: full_refresh
+        destination_sync_mode: overwrite
+        cursor_field: []
         primary_key:
         - - id
         alias_name: django_celery_beat_clockedschedule
@@ -1527,10 +1516,9 @@ configuration:
         - - id
         namespace: public
       config:
-        sync_mode: incremental
-        destination_sync_mode: append_dedup
-        cursor_field:
-        - id
+        sync_mode: full_refresh
+        destination_sync_mode: overwrite
+        cursor_field: []
         primary_key:
         - - id
         alias_name: auth_group
@@ -1556,10 +1544,9 @@ configuration:
         - - id
         namespace: public
       config:
-        sync_mode: incremental
-        destination_sync_mode: append_dedup
-        cursor_field:
-        - id
+        sync_mode: full_refresh
+        destination_sync_mode: overwrite
+        cursor_field: []
         primary_key:
         - - id
         alias_name: django_content_type
@@ -1587,10 +1574,9 @@ configuration:
         - - id
         namespace: public
       config:
-        sync_mode: incremental
-        destination_sync_mode: append_dedup
-        cursor_field:
-        - id
+        sync_mode: full_refresh
+        destination_sync_mode: overwrite
+        cursor_field: []
         primary_key:
         - - id
         alias_name: account_user_user_permissions
@@ -1618,10 +1604,9 @@ configuration:
         - - id
         namespace: public
       config:
-        sync_mode: incremental
-        destination_sync_mode: append_dedup
-        cursor_field:
-        - id
+        sync_mode: full_refresh
+        destination_sync_mode: overwrite
+        cursor_field: []
         primary_key:
         - - id
         alias_name: auth_group_permissions
@@ -1659,10 +1644,9 @@ configuration:
         - - history_id
         namespace: public
       config:
-        sync_mode: incremental
-        destination_sync_mode: append_dedup
-        cursor_field:
-        - history_id
+        sync_mode: full_refresh
+        destination_sync_mode: overwrite
+        cursor_field: []
         primary_key:
         - - history_id
         alias_name: auth_historicalgroup
@@ -1690,10 +1674,9 @@ configuration:
         - - id
         namespace: public
       config:
-        sync_mode: incremental
-        destination_sync_mode: append_dedup
-        cursor_field:
-        - id
+        sync_mode: full_refresh
+        destination_sync_mode: overwrite
+        cursor_field: []
         primary_key:
         - - id
         alias_name: django_celery_beat_solarschedule
@@ -1883,10 +1866,9 @@ configuration:
         - - id
         namespace: public
       config:
-        sync_mode: incremental
-        destination_sync_mode: append_dedup
-        cursor_field:
-        - id
+        sync_mode: full_refresh
+        destination_sync_mode: overwrite
+        cursor_field: []
         primary_key:
         - - id
         alias_name: campaign_campaign_sources
@@ -2015,10 +1997,9 @@ configuration:
         - - id
         namespace: public
       config:
-        sync_mode: incremental
-        destination_sync_mode: append_dedup
-        cursor_field:
-        - id
+        sync_mode: full_refresh
+        destination_sync_mode: overwrite
+        cursor_field: []
         primary_key:
         - - id
         alias_name: django_celery_beat_periodictask
@@ -2046,10 +2027,9 @@ configuration:
         - - id
         namespace: public
       config:
-        sync_mode: incremental
-        destination_sync_mode: append_dedup
-        cursor_field:
-        - id
+        sync_mode: full_refresh
+        destination_sync_mode: overwrite
+        cursor_field: []
         primary_key:
         - - id
         alias_name: exchange_rate
@@ -2077,10 +2057,9 @@ configuration:
         - - id
         namespace: public
       config:
-        sync_mode: incremental
-        destination_sync_mode: append_dedup
-        cursor_field:
-        - id
+        sync_mode: full_refresh
+        destination_sync_mode: overwrite
+        cursor_field: []
         primary_key:
         - - id
         alias_name: campaign_campaign_categories
@@ -2107,10 +2086,9 @@ configuration:
         - - session_key
         namespace: public
       config:
-        sync_mode: incremental
-        destination_sync_mode: append_dedup
-        cursor_field:
-        - session_key
+        sync_mode: full_refresh
+        destination_sync_mode: overwrite
+        cursor_field: []
         primary_key:
         - - session_key
         alias_name: django_session
@@ -2339,10 +2317,9 @@ configuration:
         - - name
         namespace: public
       config:
-        sync_mode: incremental
-        destination_sync_mode: append_dedup
-        cursor_field:
-        - last_update
+        sync_mode: full_refresh
+        destination_sync_mode: overwrite
+        cursor_field: []
         primary_key:
         - - name
         alias_name: exchange_exchangebackend
