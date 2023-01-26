@@ -27,3 +27,7 @@ move_env_file_to_root_folder
 	
 check_running_containers:
 	ssh ec2-user@$(SERVER) 'docker ps';
+
+install_octavia:
+	curl -s -o- https://raw.githubusercontent.com/airbytehq/airbyte/master/octavia-cli/install.sh | bash; \
+	echo "AIRBYTE_URL=http://host.docker.internal:8000" >> $(HOME)/.octavia;

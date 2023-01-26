@@ -27,10 +27,8 @@ We use [Octavia](https://airbyte.com/tutorials/version-control-airbyte-configura
 
 From the root of the repo run:
 ```
-cd octavia-configs;
 make install_octavia; 
 ```
-
 The idea is that we keep the repo updated with any manual change that may happen in the Airbyte UI, so everytime you create, delete or update a  Sources, Destinations or Connections, please, go to the `octavia-configs` folder and run:
 ```
 octavia import all;
