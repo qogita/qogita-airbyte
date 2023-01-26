@@ -87,6 +87,9 @@ configuration:
               format: date-time
               airbyte_type: timestamp_with_timezone
               type: string
+            is_valid_until_days:
+              airbyte_type: integer
+              type: number
             id:
               airbyte_type: integer
               type: number
@@ -333,6 +336,8 @@ configuration:
               type: string
             raw:
               type: string
+            is_phone_number_mobile:
+              type: boolean
             is_synced:
               type: boolean
             url:
@@ -965,6 +970,9 @@ configuration:
               format: date-time
               airbyte_type: timestamp_with_timezone
               type: string
+            is_valid_until_days:
+              airbyte_type: integer
+              type: number
             id:
               airbyte_type: integer
               type: number
@@ -1291,8 +1299,8 @@ configuration:
         - - id
         namespace: public
       config:
-        sync_mode: incremental
-        destination_sync_mode: append_dedup
+        sync_mode: full_refresh
+        destination_sync_mode: overwrite
         cursor_field:
         - updated_at
         primary_key:
@@ -1736,6 +1744,8 @@ configuration:
               type: string
             raw:
               type: string
+            is_phone_number_mobile:
+              type: boolean
             history_id:
               airbyte_type: integer
               type: number

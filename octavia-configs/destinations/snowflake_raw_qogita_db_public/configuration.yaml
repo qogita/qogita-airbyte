@@ -1,4 +1,4 @@
-resource_name: snowflake_raw_revenue_db_public
+resource_name: snowflake_raw_qogita_db_public
 definition_type: destination
 definition_id: 424892c4-daac-4491-b35d-c6688ba547ba
 definition_image: airbyte/destination-snowflake
@@ -6,7 +6,7 @@ definition_version: 0.4.41
 configuration:
   host: il13848.eu-central-1.snowflakecomputing.com
   role: ACCOUNTADMIN
-  schema: AIRBYTE_REVENUE_DB_PUBLIC
+  schema: AIRBYTE_QOGITA_DB_PUBLIC
   database: RAW
   username: AIRBYTE
   warehouse: LOADING
@@ -14,4 +14,4 @@ configuration:
     password: '**********'
     auth_type: Username and Password
   loading_method:
-    method: Internal Staging
+    method: Standard
