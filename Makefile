@@ -9,6 +9,9 @@ TEMP_DIR = temp_dir
 forward_ec2_port:
 	ssh -i $(HOME)/.ssh/$(KEY) -L 8000:localhost:8000 -N -f $(USER)@$(SERVER);
 
+forward_confluent_kafka_console_port:
+	ssh -i $(HOME)/.ssh/$(KEY) -L 9021:localhost:9021 -N -f $(USER)@$(SERVER);
+
 create_temp_dir:
 	ssh -i $(HOME)/.ssh/$(KEY) $(USER)@$(SERVER) 'mkdir ~/$(TEMP_DIR)';
 
@@ -45,6 +48,9 @@ move_env_file_to_data_folder:
 
 run_docker_compose_up:
 	ssh -i $(HOME)/.ssh/$(KEY) $(USER)@$(SERVER) "cd /data ; docker-compose up -d;";
+
+run_kafka_docker_compose_up:
+	ssh -i $(HOME)/.ssh/$(KEY) $(USER)@$(SERVER) "docker-compose -f docker-compose-kafka.yaml up -d;";
 
 run_docker_compose_down:
 	ssh -i $(HOME)/.ssh/$(KEY) $(USER)@$(SERVER) "cd /data ; docker-compose down;";

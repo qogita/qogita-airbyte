@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+
+  kafka-control-center:
+    image: confluentinc/cp-enterprise-control-center:7.4.0
+    hostname: control-center
+    container_name: control-center
+    env_file:
+      - .env.prod.kafka
+    ports:
+      - "9021:9021"
