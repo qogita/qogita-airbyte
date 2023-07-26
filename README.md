@@ -86,8 +86,9 @@ If the Airbyte service is down and we need to start it up again. Follow the next
 # Confluent kafka control center
 
 ## How to deploy the service?
-1. Open /qogita-airbyte/.env.prod.kafka and modify the <password> to use Scram AWS MSK password
-2. Run `make run_kafka_docker_compose_up`
+1. Open /qogita-airbyte/kowl_config.yaml and modify the <password> to use Scram AWS MSK password
+2. Run `make copy_kowl_config`
+3. Run `make run_kafka_docker_compose_up`
 
 ## How to connect to the Kafka confluent control center?
-From the root of this repo run `make forward_confluent_kafka_console_port`. Now the Control center instance is accessible at `http://localhost:9021/`.
+From the root of this repo run `make forward_kowl_console_port`. Now the Control center instance is accessible at `http://localhost:8080/`.
