@@ -53,6 +53,7 @@ run_docker_compose_up:
 	ssh -i $(HOME)/.ssh/$(KEY) $(USER)@$(SERVER) "cd /data ; docker-compose up -d;";
 
 run_kafka_docker_compose_up:
+	$(MAKE) copy_kowl_config;
 	ssh -i $(HOME)/.ssh/$(KEY) $(USER)@$(SERVER) "docker-compose -f docker-compose-kafka.yaml up -d;";
 
 run_docker_compose_down:
