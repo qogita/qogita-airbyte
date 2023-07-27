@@ -5,6 +5,11 @@
     <em>Data integration platform for ELT pipelines from APIs, databases & files to databases, warehouses & lakes</em>
 </p>
 <p align="center">
+<a href="https://https://developer.confluent.io/" target="_blank">
+   <img src="https://developer.confluent.io/images/developer-logo.svg">
+</a>
+</p>
+<p align="center">
 <a href="https://github.com/airbytehq/airbyte/stargazers/" target="_blank">
     <img src="https://img.shields.io/github/stars/airbytehq/airbyte?style=social&label=Star&maxAge=2592000" alt="Test">
 </a>
@@ -77,3 +82,12 @@ If the Airbyte service is down and we need to start it up again. Follow the next
 
 1. Make the changes you want to apply in the `.env.prod` file.
 2. From the root of the repo run `make apply_new_envs`. PLEASE, TAKE INTO ACCCOUNT THAT THIS WILL STOP THE SERVICE AND RESTART IT.
+
+# Confluent kafka control center
+
+## How to deploy the service?
+1. Open /qogita-airbyte/kowl_config.yaml and modify the <password> to use Scram AWS MSK password
+2. Run `make run_kafka_docker_compose_up`
+
+## How to connect to the Kafka confluent control center?
+From the root of this repo run `make forward_kowl_console_port`. Now the Control center instance is accessible at `http://localhost:8080/`.

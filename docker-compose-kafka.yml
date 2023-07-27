@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  kowl:
+    image: quay.io/cloudhut/kowl
+    hostname: kowl
+    container_name: kowl
+    volumes:
+      - ./kowl_config.yaml:/home/appuser/kowl_config.yaml
+    ports:
+      - "8080:8080"
+    command:
+      - --config.filepath=/home/appuser/kowl_config.yaml

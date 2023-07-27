@@ -9,6 +9,12 @@ TEMP_DIR = temp_dir
 forward_ec2_port:
 	ssh -i $(HOME)/.ssh/$(KEY) -L 8000:localhost:8000 -N -f $(USER)@$(SERVER);
 
+forward_confluent_kafka_console_port:
+	ssh -i $(HOME)/.ssh/$(KEY) -L 9021:localhost:9021 -N -f $(USER)@$(SERVER);
+
+forward_kowl_console_port:
+	ssh -i $(HOME)/.ssh/$(KEY) -L 8080:localhost:8080 -N -f $(USER)@$(SERVER);
+
 create_temp_dir:
 	ssh -i $(HOME)/.ssh/$(KEY) $(USER)@$(SERVER) 'mkdir ~/$(TEMP_DIR)';
 
@@ -46,6 +52,10 @@ move_env_file_to_data_folder:
 run_docker_compose_up:
 	ssh -i $(HOME)/.ssh/$(KEY) $(USER)@$(SERVER) "cd /data ; docker-compose up -d;";
 
+run_kafka_docker_compose_up:
+	$(MAKE) copy_kowl_config;
+	ssh -i $(HOME)/.ssh/$(KEY) $(USER)@$(SERVER) "docker-compose -f docker-compose-kafka.yaml up -d;";
+
 run_docker_compose_down:
 	ssh -i $(HOME)/.ssh/$(KEY) $(USER)@$(SERVER) "cd /data ; docker-compose down;";
 	
@@ -57,6 +67,10 @@ install_cloudwatch_agent:
 
 copy_cloudwatch_agent_config:
 	scp -i $(HOME)/.ssh/$(KEY) ${DIR}/cloudwatch_agent_config/config.json $(USER)@$(SERVER):~/$(TEMP_DIR)/config.json;
+
+copy_kowl_config:
+	scp -i $(HOME)/.ssh/$(KEY) ${DIR}/kowl_config.yaml $(USER)@$(SERVER):/home/ec2-user/kowl_config.yaml;
+	scp -i $(HOME)/.ssh/$(KEY) ${DIR}/docker-compose-kafka.yml $(USER)@$(SERVER):/home/ec2-user/docker-compose-kafka.yml;
 
 move_cloudwatch_agent_config:
 	ssh -i $(HOME)/.ssh/$(KEY) $(USER)@$(SERVER) 'sudo cp ~/$(TEMP_DIR)/config.json /opt/aws/amazon-cloudwatch-agent/bin/config.json';
