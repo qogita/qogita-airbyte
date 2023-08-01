@@ -1,6 +1,6 @@
 .PHONY:
 
-SERVER = 
+SERVER = 18.133.238.41
 USER = ec2-user
 DIR := ${CURDIR}
 KEY = airbyte.pem

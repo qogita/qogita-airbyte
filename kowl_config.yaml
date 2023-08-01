@@ -4,9 +4,9 @@ server:
   listenPort: 8080
 kafka:
   brokers:
-    - b-1.qogitamskcluster.njb0um.c4.kafka.eu-west-2.amazonaws.com:9096
-    - b-2.qogitamskcluster.njb0um.c4.kafka.eu-west-2.amazonaws.com:9096
-    - b-3.qogitamskcluster.njb0um.c4.kafka.eu-west-2.amazonaws.com:9096
+    - b-1.qogitamskcluster.3udses.c8.kafka.eu-central-1.amazonaws.com:9096
+    - b-2.qogitamskcluster.3udses.c8.kafka.eu-central-1.amazonaws.com:9096
+    - b-3.qogitamskcluster.3udses.c8.kafka.eu-central-1.amazonaws.com:9096
   sasl:
     enabled: true
     username: airflow
