@@ -1,0 +1,10 @@
+resource_name: HubSpot
+definition_type: source
+definition_id: 36c891d9-4bd9-43ac-bad2-10e12756272c
+definition_image: airbyte/source-hubspot
+definition_version: 0.3.2
+configuration:
+  start_date: '2023-07-25T00:00:00Z'
+  credentials:
+    access_token: ${HUBSPOT_API_KEY}
+    credentials_title: Private App Credentials
