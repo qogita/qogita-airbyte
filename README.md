@@ -69,14 +69,15 @@ If the Airbyte service is down and we need to start it up again. Follow the next
     3. Recreate the the stack: `cdk deploy --exclusively AirbyteStack --context config=datascience`
 2. Go to the EC2 instance and copy the Public IPv4 DNS of the recently created EC2 instance.
 3. Paste the IPv4 DNS in the SERVER variable in the Makefile in the root of this repo.
-4. Make sure that you have the `airyte.pem` key in your ssh folder.
-5. From the root of this repo run `make disaster_recovery`. It will take some minutes to run all the commands.
-6. From the root of this repo run `make forward_ec2_port`. Now the Airbyte instance shoudl be accesible in `http://localhost:8000/`.
-7. Now it is time deploy the Sources, Destinations and Connections. For that we will use Octavia.
+4. Make sure that you have the `airbyte.pem` key in your ssh folder.
+5. *IMPORTANT*. Change the airbyte password variable BASIC_AUTH_PASSWORD in `.env.prod` file.
+6. From the root of this repo run `make disaster_recovery`. It will take some minutes to run all the commands.
+7. From the root of this repo run `make forward_ec2_port`. Now the Airbyte instance shoudl be accesible in `http://localhost:8000/`.
+8. Now it is time deploy the Sources, Destinations and Connections. For that we will use Octavia.
     1. We need to store the passwords as secrets in the Octavia config file (~/.octavia)
         a. From the root of this repo run `make store_passwords`. You need to have the AWS credentials for the Data Science prod Account to run this command. As it gets the passwords from AWS Secret Manager.
     2. From the root of this repo run `make octavia_apply`. Once it is done, go to the Airbyte UI and enable all the connections.
-8. Remember to go to `data-airflow` repo and change the connection Ids in the data_replication_airbyte_qogita_db_public_to_snowflake_raw and data_replication_airbyte_revenue_db_public_to_snowflake_raw DAGs
+9. Remember to go to `data-airflow` repo and change the connection Ids in the data_replication_airbyte_qogita_db_public_to_snowflake_raw and data_replication_airbyte_revenue_db_public_to_snowflake_raw DAGs
 
 ### How to upgrade Airbyte or change environment variables in the service:
 
