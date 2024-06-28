@@ -4,6 +4,7 @@
         "run_as_user": "root"
     },
     "metrics": {
+        "namespace": "CWAgent",
         "append_dimensions": {
             "AutoScalingGroupName": "${aws:AutoScalingGroupName}",
             "ImageId": "${aws:ImageId}",
